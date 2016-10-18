@@ -1,0 +1,3 @@
+rootProject.name = "camel-examples"
+
+include 'camel-file-examples'

@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'spring-boot'
+apply from: '../java.gradle'
+
+description = "REST Service"
+
+configurations {
+    compile.exclude module: "spring-boot-starter-tomcat"
+}
+
+dependencies {
+    compile 'org.apache.camel:camel-spring-boot-starter'
+    compile 'org.apache.camel:camel-csv'
+    
+    testCompile 'junit:junit'
+    testCompile 'eu.codearte.catch-exception:catch-exception'
+    testCompile 'org.mockito:mockito-core'
+    testCompile 'org.hamcrest:java-hamcrest'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework.boot:spring-boot-test-autoconfigure'
+}
